@@ -2,61 +2,61 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <center>
-                    <h2 class="card-title"><b>Gestión de asignaturas</b></h2>
-                </center>
+                    <h2 class=" text-center"><b>Gestión de materias</b></h2>
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-title">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <a href="<?=base_url();?>/reportes/materias" class="btn btn-primary btn-rounded">Reporte
-                                            general de asignaturas</a>
-                                    </div>
-                                    <div class="col-4">
-                                        <button class="btn btn-success btn-rounded" data-toggle="modal" @click="activarForm"
-                                            data-target="#form">Agregar
-                                            asignatura</button><br><br>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <a href="<?=base_url();?>/reportes/materias" class="btn btn-primary btn-rounded">Reporte
+                                                general de materias</a>
+                                        </div>
+                                        <div class="col-4">
+                                            <button class="btn btn-success btn-rounded" data-toggle="modal" @click="activarForm"
+                                                data-target="#form">Agregar
+                                                materia</button><br><br>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                Nombre
-                                            </th>
-                                            <th>Descripción</th>
-                                            <th>Curso</th>
-                                            <th>Reportes</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr v-for="a in asignaturas">
-                                            <td v-text="a.nombre"></td>
-                                            <td v-text="a.descripcion"></td>
-                                            <td v-text="getNombreCurso(a.id_curso)"></td>
-                                            <td>
-                                                <a class="btn btn-outline-primary btn-rounded" :href="'<?= base_url('asignaturas/gestion')?>/'+a.id_asignatura">
-                                                    Gestionar
-                                                </a>
-                                                <button @click="editar(a)" data-target="#form" data-toggle="modal"
-                                                    class="btn btn-outline-warning btn-rounded">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button class="btn btn-outline-danger btn-rounded" @click="eliminar(a.id_asignatura)">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Nombre
+                                                </th>
+                                                <th>Descripción</th>
+                                                <th>Curso</th>
+                                                <th>Reportes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="a in asignaturas">
+                                                <td v-text="a.nombre"></td>
+                                                <td v-text="a.descripcion"></td>
+                                                <td v-text="getNombreCurso(a.id_curso)"></td>
+                                                <td>
+                                                    <a class="btn btn-outline-primary btn-rounded" :href="'<?= base_url('asignaturas/gestion')?>/'+a.id_asignatura">
+                                                        Gestionar
+                                                    </a>
+                                                    <button @click="editar(a)" data-target="#form" data-toggle="modal"
+                                                        class="btn btn-outline-warning btn-rounded">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn btn-outline-danger btn-rounded" @click="eliminar(a.id_asignatura)">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Curso</label>
+                        <label>Licenciatura</label>
                         <select class="form-control" v-model="asignatura.id_curso">
                             <option :value="c.id_curso" v-for="c in cursos">{{c.nombre}}</option>
                         </select>

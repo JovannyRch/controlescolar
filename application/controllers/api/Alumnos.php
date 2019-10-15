@@ -13,21 +13,29 @@ class Alumnos extends REST_Controller{
 
     public function cursoActual_get($id_alumnno)
     {
+        //jovannyrch@gmail.com
         $resultado = $this->alumnos_model->cursoActual($id_alumnno);
         $this->response($resultado, 200);
     }
 
     public function reporteCursoActual_get($id_alumnno){
+        //jovannyrch@gmail.com
         $resultado = $this->alumnos_model->calificacionesPorCurso($id_alumnno);
         $this->response($resultado, 200);
     }
 
     public function reporteCalificaciones_get($id_alumnno){
+        //jovannyrch@gmail.com
         $this->response(
             $this->alumnos_model->calificacionesAlumno($id_alumnno)
             ,200
         );
     }
+
+    public function 
+
+
+
 
 }
     

@@ -52,39 +52,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Código Postal</label>
-                                    <input type="number" v-model="usuario.codPostal" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Dirección</label>
-                                    <input type="text" v-model="usuario.direccion" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Localidad</label>
-                                    <input type="text" v-model="usuario.localidad" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">País</label>
-                                    <input type="text" v-model="usuario.pais" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bmd-label">Fecha de Nacimiento</label><br>
-                                    <input type="date" v-model="usuario.nacimiento" class="form-control" required>
-                                </div>
-                            </div>
-                            
-                        </div>
+                      
                         <center>
                             <button type="submit" class="btn btn-success ">Registrar</button>
                         </center>
@@ -107,10 +75,6 @@
                 {
                     text: 'Profesor',
                     value: '2'
-                },
-                {
-                    text: 'Padre',
-                    value: '3'
                 },
                 {
                     text: 'Administrador',

@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-header card-header-success">
                 <center>
-                    <h2 class="card-title ">Gestión de cursos</h2>
+                    <h2 class="card-title ">Gestión de licenciaturas</h2>
                 </center>
             </div>
 
@@ -38,7 +38,7 @@
                                     <div class="col-8">
                                     </div>
                                     <div class="col-4">
-                                        <button class="btn btn-success" @click="activarForm">Agregar curso</button><br><br>
+                                        <button class="btn btn-success" @click="activarForm">Agregar licenciatura</button><br><br>
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
                 this.curso.nombre = '';
                 this.curso.descripcion = '';
                 this.registro = true;
-                this.tituloForm = 'Agregar grado';
+                this.tituloForm = 'Agregar licenciatura';
                 this.classTable = "col-md-8";
                 this.classForm = "col-md-4";
             },
@@ -141,7 +141,6 @@
                         this.getData();
                         this.ocultarForm();
                     }).catch(error => {
-                        console.log("Error en post de Aula");
                     });
             },
             eliminar(id_curso) {
@@ -157,7 +156,7 @@
                 this.activarForm();
                 this.curso = Object.assign({}, curso);
                 this.registro = false;
-                this.tituloForm = 'Editar grado';
+                this.tituloForm = 'Editar licenciatura';
             },
             put(id_curso, nombre, descripcion) {
                 var url = "<?=base_url()?>index.php/api/curso/curso/" + id_curso;

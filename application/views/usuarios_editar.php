@@ -42,36 +42,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label class="bmd-label">Código Postal</label><br>
-                                        <input type="text" v-model="usuario.cod_postal" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="bmd-label">Dirección</label><br>
-                                        <input type="text" v-model="usuario.direccion" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="bmd-label">Localidad</label><br>
-                                        <input type="text" v-model="usuario.localidad" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="bmd-label">País</label><br>
-                                        <input type="text" v-model="usuario.pais" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="bmd-label">Fecha de Nacimiento</label><br>
-                                        <input type="date" v-model="usuario.fecha_nacimiento" class="form-control" required >
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="bmd-label">Fecha de Registro</label><br>
@@ -79,9 +50,6 @@
                                     </div>
                                 </div>
     
-                                <div class="col-md-4">
-                                        
-                                    </div>
                                
                                 <div class="col-md-4"></div>
                                 <button type="submit" class="btn btn-success btn-rounded col-md-4" style="height: 10%; margin: auto auto;">Actualizar

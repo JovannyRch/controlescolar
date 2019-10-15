@@ -163,11 +163,9 @@ create table posts(
 
 CREATE TABLE grupos(
 	id_grupo integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	id_aula integer,
 	id_curso integer,
 	nombre varchar(50),
 	descripcion varchar(255),
-	FOREIGN KEY(id_aula) REFERENCES aula(id_aula) ON DELETE CASCADE,
 	FOREIGN KEY(id_curso) REFERENCES curso(id_curso) ON DELETE CASCADE
 );
 
@@ -224,3 +222,67 @@ CREATE TABLE profesores_materias_grupos(
 	FOREIGN KEY(id_grupo) REFERENCES grupos(id_grupo) ON DELETE CASCADE,
 	FOREIGN KEY(id_profesores_materias) REFERENCES profesores_materias(id_profesores_materias) ON DELETE CASCADE
 );
+
+
+
+
+create or replace table pagos(
+	-- jovannyrch@gmail.com
+	id integer AUTO_INCREMENT PRIMARY KEY,
+	id_convocatoria integer not null,
+	FOREIGN KEY (id_convocatoria) REFERENCES convocatorias(id_convocatoria),
+	id_alumno integer not null,
+	FOREIGN KEY(id_alumno) REFERENCES usuarios(id_usuario),
+	fecha timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	monto float NOT NULL
+);
+
+CREATE OR REPLACE TABLE licenciaturas(
+	-- jovannyrch@gmail.com
+	id integer AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	nombre varchar(60)
+);
+
+CREATE OR REPLACE TABLE planteles(
+	-- jovannyrch@gmail.com
+	id integer AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	nombre varchar(60),
+	telefono varchar(15),
+	correo varchar(40)
+);
+
+
+
+create or replace table datos_alumnos(
+	-- jovannyrch@gmail.com
+	id integer AUTO_INCREMENT PRIMARY KEY,
+	matricula integer not null,
+	id_alumno integer not null,
+	FOREIGN KEY(id_alumno) REFERENCES usuarios(id_usuario),
+	status TINYINT DEFAULT 1,
+	id_ultimo_periodo integer not null,
+	FOREIGN KEY (id_ultimo_periodo) REFERENCES convocatorias(id_convocatoria),
+	id_periodo_ingreso integer not null,
+	FOREIGN KEY (id_periodo_ingreso) REFERENCES convocatorias(id_convocatoria),
+	turno varchar(10),
+	id_plantel integer not null,
+	FOREIGN KEY(id_plantel) REFERENCES planteles(id),
+	id_licenciatura integer not null,
+	FOREIGN KEY(id_licenciatura) REFERENCES licenciaturas(id),
+	status_pago varchar(15),
+	tot_mensualidades_x_pagar integer DEFAULT 4,
+	cant_mensualidades_x_pagar integer,
+	costo_mensualidad float,
+	costo_final_periodo float
+);
+
+
+
+
+CREATE OR REPLACE VIEW datos_alumno_completos  
+AS SELECT *, (SELECT p.nombre plantel from planteles p where p.id = datos_alumnos.id_plantel), 
+(SELECT l.nombre licenciatura from licenciaturas l where l.id = datos_alumnos.id_licenciatura) from datos_alumnos;
+
+CREATE OR REPLACE VIEW alumnos  
+AS SELECT * from usuarios inner join datos_alumno_completos 
+on usuarios.id_usuario = datos_alumno_completos.id_alumno  where usuarios.id_tipo_usuario = 4;

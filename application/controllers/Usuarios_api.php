@@ -50,13 +50,8 @@ class Usuarios_api extends REST_Controller{
 		'apellido_paterno' =>  htmlspecialchars($this->post('apellido_paterno')),
 		'apellido_materno' =>  htmlspecialchars($this->post('apellido_materno')),
 		'email' =>  htmlspecialchars($this->post('email')),
-		'direccion' =>  htmlspecialchars($this->post('direccion')),
-		'localidad' =>  htmlspecialchars($this->post('localidad')),
-		'pais' =>  htmlspecialchars($this->post('pais')),
 		'fecha_alta' =>  htmlspecialchars($this->post('fecha_alta')),
-		'fecha_nacimiento' =>  htmlspecialchars($this->post('fecha_nacimiento')),
 		'telefono' =>  htmlspecialchars($this->post('telefono')),
-		'cod_postal' =>  htmlspecialchars($this->post('cod_postal'))
        );
         $resultado = $this->usuarios_model->save($data);
         if($resultado) $this->response($resultado,200);
@@ -72,13 +67,8 @@ class Usuarios_api extends REST_Controller{
 	    'apellido_paterno' => htmlspecialchars($this->put('apellido_paterno')),
 	    'apellido_materno' => htmlspecialchars($this->put('apellido_materno')),
 	    'email' => htmlspecialchars($this->put('email')),
-	    'direccion' => htmlspecialchars($this->put('direccion')),
-	    'localidad' => htmlspecialchars($this->put('localidad')),
-	    'pais' => htmlspecialchars($this->put('pais')),
 	    'fecha_alta' => htmlspecialchars($this->put('fecha_alta')),
-	    'fecha_nacimiento' => htmlspecialchars($this->put('fecha_nacimiento')),
         'telefono' => htmlspecialchars($this->put('telefono')),
-		'cod_postal' => htmlspecialchars($this->put('cod_postal'))
        );
         $resultado = $this->usuarios_model->update($id_usuario,$data);
         $this->response('Moficado con éxito',200);

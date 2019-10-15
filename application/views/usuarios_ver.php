@@ -1,7 +1,7 @@
 <div class="row" id="app">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header text-black" style="background-color: rgb(75, 22, 33,.3)">
+            <div class="card-header text-black" style="background-color: rgba(0, 133, 62, 1); color:white">
                 <h4> <span v-text="getTipo(usuario.id_tipo_usuario)"></span> </h4>
                 
                 <h4 class="card-title"><span>{{usuario.apellido_paterno+" "+usuario.apellido_materno+" "+usuario.nombre}}</span>
@@ -59,37 +59,6 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label class="bmd-label">Código Postal</label><br>
-                                    <span style="font-size: 150%" v-text="usuario.cod_postal"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="bmd-label">Dirección</label><br>
-                                    <span style="font-size: 150%" v-text="usuario.direccion"></span>
-
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bmd-label">Localidad</label><br>
-                                    <span style="font-size: 150%" v-text="usuario.localidad"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bmd-label">País</label><br>
-                                    <span style="font-size: 150%" v-text="usuario.pais"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bmd-label">Fecha de Nacimiento</label><br>
-                                    <span style="font-size: 150%" v-text="usuario.fecha_nacimiento"></span>
-                                </div>
-                            </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="bmd-label">Fecha de Registro</label><br>

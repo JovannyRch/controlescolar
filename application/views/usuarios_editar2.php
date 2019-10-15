@@ -1,7 +1,7 @@
 <div class="row" id="app">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header text-black" style="background-color: rgb(75, 22, 33,.3)">
+            <div class="card-header text-black" style="background-color: rgba(0, 133, 62, 1); color:white   ">
                 <h3>Editar usuario</h3>
             </div>
             <div class="card-body">
@@ -42,36 +42,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label class="bmd-label">Código Postal</label><br>
-                                    <input type="text" v-model="usuario.cod_postal" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="bmd-label">Dirección</label><br>
-                                    <input type="text" v-model="usuario.direccion" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bmd-label">Localidad</label><br>
-                                    <input type="text" v-model="usuario.localidad" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bmd-label">País</label><br>
-                                    <input type="text" v-model="usuario.pais" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bmd-label">Fecha de Nacimiento</label><br>
-                                    <input type="date" v-model="usuario.fecha_nacimiento" class="form-control" required>
-                                </div>
-                            </div>
+                            
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="bmd-label">Fecha de Registro</label><br>

@@ -79,45 +79,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-2">
-                        <img src="<?=base_url()?>imgs/aula.png" width="100%" id="miimg">
-                    </div>
+                
                 </div>
 
 
             </div>
         </div>
-        <div class="row">
-            <div class="col-2">
-                <button id="masInformacion" class="btn btn-info">
-                    Más información
-                </button>
-            </div>
-            <br><br>
-            <div class="card col-10" id="parrafo">
-                <div class="card-body">
-                    Ubicación: <br>
-                    Calle Estrella No. 144, Conjunto Habitacional La Loma II
-                    Municio de Zinacatepece, Estado de México
-                </div>
-              </div>
-        </div>
+        
     </div>
 </div>
 
 <script>
 
-      $(document).ready(function () {
-            $('#parrafo').hide();
-            
-            $("#masInformacion").click(
-                function(){
-                    $('#parrafo').fadeIn("slow");
-                }
-            );
-            $("#miimg").slideDown(100).slideUp(2000).slideDown(2000);
-            $("#titulo").animate({fontSize: '3em'},"slow");
-        });
 
     var app = new Vue({
         el: "#app",

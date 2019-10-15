@@ -13,6 +13,7 @@ class Alumnos_model extends CI_Model {
 	}
 
     public function cursoActual($id_alumno){
+        //jovannyrch@gmail.com
         
         $query = "SELECT * FROM (SELECT * from inscripciones natural join convocatorias ) as q1 natural join curso where activo = 1 and id_alumno = $id_alumno";
         $consulta = $this->db->query($query)->row_array();
@@ -68,6 +69,7 @@ class Alumnos_model extends CI_Model {
 
     //Obtiene el profesor dado el grupo y la materia
     public function getProfesor($id_asignatura,$id_grupo){
+        //jovannyrch@gmail.com
         $id_profesor = $this->db->query("SELECT id_profesor from profesores_materias natural join profesores_materias_grupos where id_grupo = $id_grupo and id_asignatura = $id_asignatura")
         ->row_array()['id_profesor'];
         if($id_profesor){
@@ -85,6 +87,7 @@ class Alumnos_model extends CI_Model {
     //Obtener las calificaciones de un alumno por materias
     public function calificacionesPorCurso($id_alumno){
         
+        //jovannyrch@gmail.com
         $query = "SELECT * FROM (SELECT * from inscripciones natural join convocatorias ) as q1 natural join curso where activo = 1 and id_alumno = $id_alumno";
         $consulta = $this->db->query($query)->row_array();
         if(!$consulta) return null;
@@ -132,6 +135,7 @@ class Alumnos_model extends CI_Model {
 
     // Obtener las calificaciones del alumno
     public function calificacionesAlumno($id_alumno){
+        //jovannyrch@gmail.com
         $query = "SELECT * FROM (SELECT * from inscripciones natural join convocatorias ) as q1 natural join curso where activo = 1 and id_alumno = $id_alumno";
         $consulta = $this->db->query($query)->row_array();
         if(!$consulta) return null;
@@ -237,6 +241,12 @@ class Alumnos_model extends CI_Model {
             'calificaciones' => $arrayPromedioMaterias
          );       
         return $datos;
+    }
+
+    //Busqueda de alumnos por nombre, matricula
+    public function busqueda(){
+        //jovannyrch@gmail.com
+        $resultados = $this->db->query("SELECT ");
     }
 
 
