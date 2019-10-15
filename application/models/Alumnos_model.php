@@ -242,11 +242,11 @@ class Alumnos_model extends CI_Model {
          );       
         return $datos;
     }
-
-    //Busqueda de alumnos por nombre, matricula
-    public function busqueda(){
+    // TODO  busqueda de alumno en PHP
+    public function busqueda($por,$valor){
         //jovannyrch@gmail.com
-        $resultados = $this->db->query("SELECT ");
+        $resultados = $this->db->query("SELECT * from alumnos where $por LIKE '%$valor%'")->result_array();
+        return $resultados;
     }
 
 

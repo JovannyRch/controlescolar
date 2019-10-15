@@ -18,6 +18,9 @@ class Pagos_model extends CI_Model {
     }
 
     public function save($data){
+        // Obtención del periodo actual
+        $convocatoria_actual = $this->db->query("SELECT id_convocatoria from convocatorias where activo = 1")->row_array()['id_convocatoria'];
+        $data['id_convocatoria'] = $convocatoria_actual;
         $this->db->set($data)->insert('pagos');
         if ($this->db->affected_rows() === 1) return $this->db->insert_id();
         return null;
@@ -39,8 +42,9 @@ class Pagos_model extends CI_Model {
       //PAGOS DE UN ALUMNO
       public function getPagosAlumno($id_usuario){
         //jovannyrch@gmail.com
-        $pagos = $this->db->query("SELECT * from pagos where id_alumno = $id_usuario")->result_array();
+        $pagos = $this->db->query("SELECT *,(SELECT convocatoria from convocatorias c where c.id_convocatoria = pagos.id_convocatoria) convocatoria from pagos where id_alumno = $id_usuario  order by 1 desc")->result_array();
         $suma = $this->db->query("SELECT sum(monto) suma from pagos where id_alumno = $id_usuario")->row_array()['suma'];
+        if(is_null($suma)) $suma = 0;
         return array(
             'pagos' => $pagos,
             'suma' => $suma

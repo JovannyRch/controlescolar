@@ -22,9 +22,7 @@ class Pagos extends REST_Controller{
     public function pagos_post()
     {
         $data = array(
-		'id_convocatoria' => $this->post('id_convocatoria'),
 		'id_alumno' => $this->post('id_alumno'),
-		'fecha' => $this->post('fecha'),
 		'monto' => $this->post('monto')
        );
         $resultado = $this->pagos_model->save($data);
@@ -51,5 +49,11 @@ class Pagos extends REST_Controller{
         if($resultado) $this->response('Eliminado con éxito',200);
         else $this->response('Error en el delete de pagos',400);
     }
+
+    public function pagos_alumno_get($id_alumno){
+        $pagos = $this->pagos_model->getPagosAlumno($id_alumno);
+        $this->response($pagos,200);
+    }
+
 }
     

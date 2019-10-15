@@ -32,7 +32,14 @@ class Alumnos extends REST_Controller{
         );
     }
 
-    public function 
+    public function busqueda_get($por, $valor){
+        //jovannyrch@gmail.com
+        $this->response(
+            $this->alumnos_model->busqueda($por, $valor)
+            ,200
+        );
+    }
+
 
 
 

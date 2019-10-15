@@ -88,5 +88,15 @@ class Usuarios_model extends CI_Model {
         return $resultado->result_array();
     }
 
+    public function registrarAlumno($datos_usuario, $datos_alumno){
+        $id_usuario = $this->save($datos_usuario);
+        if($id_usuario){
+            $datos_alumno['id_alumno'] = $id_usuario;
+            $this->db->set($datos_alumno)->insert('datos_alumnos');
+            if ($this->db->affected_rows() >= 1) return $id_usuario;
+            else return null;
+        }else return null;
+    }
+
 }
         

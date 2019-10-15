@@ -271,7 +271,7 @@ create or replace table datos_alumnos(
 	FOREIGN KEY(id_licenciatura) REFERENCES licenciaturas(id),
 	status_pago varchar(15),
 	tot_mensualidades_x_pagar integer DEFAULT 4,
-	cant_mensualidades_x_pagar integer,
+	cant_mensualidades_x_pagar integer defaul 4,
 	costo_mensualidad float,
 	costo_final_periodo float
 );
@@ -280,8 +280,8 @@ create or replace table datos_alumnos(
 
 
 CREATE OR REPLACE VIEW datos_alumno_completos  
-AS SELECT *, (SELECT p.nombre plantel from planteles p where p.id = datos_alumnos.id_plantel), 
-(SELECT l.nombre licenciatura from licenciaturas l where l.id = datos_alumnos.id_licenciatura) from datos_alumnos;
+AS SELECT *, (SELECT p.nombre  from planteles p where p.id = datos_alumnos.id_plantel) plantel, 
+(SELECT l.nombre from licenciaturas l where l.id = datos_alumnos.id_licenciatura) licenciatura from datos_alumnos;
 
 CREATE OR REPLACE VIEW alumnos  
 AS SELECT * from usuarios inner join datos_alumno_completos 

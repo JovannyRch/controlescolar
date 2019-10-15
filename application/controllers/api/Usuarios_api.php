@@ -65,5 +65,19 @@ class Usuarios_api extends REST_Controller{
         $resultado = $this->usuarios_model->getMensajesNoLeidos($id_usuario);
         $this->response($resultado, 200);
     }
+
+    public function registarAlumno_post(){
+        $datos_usuario = $this->post("datos_usuario");
+        $datos_alumno = $this->post("datos_alumno");
+        $id_usuario = $this->usuarios_model->registrarAlumno($datos_usuario, $datos_alumno);
+        if($id_usuario){
+            $this->response($id_usuario,200);
+        }else{
+            $this->response("Error al registar el alumno",400);
+        }
+    }
+
+    
+
 }
     
