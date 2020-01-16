@@ -1,4 +1,4 @@
-<div id="app">
+<div id="app" class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-header card-header-success">
@@ -37,11 +37,14 @@
 
                                     <div class="form-group">
                                         <label class="bmd-label">Descripción</label>
-                                        <textarea name="" id="" cols="30" rows="5" class="form-control" v-model="grupo.descripcion"></textarea>
+                                        <textarea name="" id="" cols="30" rows="5" class="form-control"
+                                            v-model="grupo.descripcion"></textarea>
                                     </div>
 
-                                    <button v-if="registro" type="reset" class="btn btn-success" @click="post(grupo.id_aula, grupo.id_curso, grupo.nombre, grupo.descripcion)">Agregar</button>
-                                    <button v-else type="reset" class="btn btn-success" @click="put(grupo.id_grupo,grupo.id_aula, grupo.id_curso, grupo.nombre, grupo.descripcion)">Guardar
+                                    <button v-if="registro" type="reset" class="btn btn-success"
+                                        @click="post(grupo.id_aula, grupo.id_curso, grupo.nombre, grupo.descripcion)">Agregar</button>
+                                    <button v-else type="reset" class="btn btn-success"
+                                        @click="put(grupo.id_grupo,grupo.id_aula, grupo.id_curso, grupo.nombre, grupo.descripcion)">Guardar
                                         Cambios</button>
                                     <button class="btn btn-primary" @click="ocultarForm">Cancelar</button>
                                 </div>
@@ -56,7 +59,11 @@
                                         <h4><b>Grupos</b></h4>
                                     </div>
                                     <div class="col-4">
-                                        <button class="btn btn-success" @click="activarForm">Agregar grupo</button><br><br>
+                                        <button class="btn btn-success" @click="activarForm">Agregar
+                                            grupo</button><br><br>
+                                        <a class="btn btn-success text-white" href="<?= site_url('grupos/alumnos')?>">
+                                            Agregar alumnos a grupos
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +77,7 @@
                                                 Nombre
                                             </th>
                                             <th>Aula</th>
-                                            <th>Grado</th>
+                                            <th>Licenciatura</th>
                                             <th>Descripción</th>
                                         </tr>
                                     </thead>
@@ -81,10 +88,12 @@
                                             <td v-text="getValue(item.id_curso,'id_curso',cursos,['nombre'])"></td>
                                             <td v-text="item.descripcion"></td>
                                             <td>
-                                                <a :href="'<?= base_url() ?>grupos/reporte/'+item.id_grupo" class="btn btn-success">
+                                                <a :href="'<?= base_url() ?>grupos/reporte/'+item.id_grupo"
+                                                    class="btn btn-success">
                                                     Reporte por alumnos
                                                 </a>
-                                                <a :href="'<?= base_url() ?>grupos/reporteMaterias/'+item.id_grupo" class="btn btn-success">
+                                                <a :href="'<?= base_url() ?>grupos/reporteMaterias/'+item.id_grupo"
+                                                    class="btn btn-success">
                                                     Reporte por materias
                                                 </a>
                                                 <button @click="editar(item)" class="btn btn-outline-warning">
@@ -220,15 +229,15 @@
             },
             eliminar(id) {
                 var respuesta = confirm("Confirmar eliminación");
-               if(respuesta){
-                var url = "<?=base_url()?>index.php/api/grupos/grupos/" + id;
-                axios.delete(url)
-                    .then(response => {
-                        this.getData();
-                    }).catch(error => {
-                        console.log("error en delete");
-                    });
-               }
+                if (respuesta) {
+                    var url = "<?=base_url()?>index.php/api/grupos/grupos/" + id;
+                    axios.delete(url)
+                        .then(response => {
+                            this.getData();
+                        }).catch(error => {
+                            console.log("error en delete");
+                        });
+                }
             },
             editar(item) {
                 this.activarForm();

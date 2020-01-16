@@ -242,7 +242,6 @@ class Alumnos_model extends CI_Model {
          );       
         return $datos;
     }
-    // TODO  busqueda de alumno en PHP
     public function busqueda($por,$valor){
         //jovannyrch@gmail.com
         $resultados = $this->db->query("SELECT * from alumnos where $por LIKE '%$valor%'")->result_array();

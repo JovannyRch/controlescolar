@@ -13,6 +13,14 @@ class Licenciaturas extends CI_Controller {
 		$this->load->view('header');
 		$this->load->view('cursos_index');
 		$this->load->view('footer');
-    }
+	}
+
+
+	public function materias(){
+		$this->load->view('header');
+		$this->load->view('licenciaturas/materias');
+		$this->load->view('footer');
+	}
+	
 
 }

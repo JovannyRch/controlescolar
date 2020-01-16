@@ -59,5 +59,6 @@ class Grupos extends REST_Controller{
         else $this->response("Error en el get de grupos x cursos", 400);
     }
 
+
 }
     

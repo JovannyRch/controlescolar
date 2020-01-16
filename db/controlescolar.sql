@@ -286,3 +286,50 @@ AS SELECT *, (SELECT p.nombre  from planteles p where p.id = datos_alumnos.id_pl
 CREATE OR REPLACE VIEW alumnos  
 AS SELECT * from usuarios inner join datos_alumno_completos 
 on usuarios.id_usuario = datos_alumno_completos.id_alumno  where usuarios.id_tipo_usuario = 4;
+
+
+
+
+
+CREATE OR REPLACE TABLE calificaciones_materia(
+	-- jovannyrch@gmail.com
+	id integer AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	id_alumno integer not null,
+	FOREIGN KEY(id_alumno) REFERENCES usuarios(id_usuario),
+	id_materia integer not null,
+	FOREIGN KEY(id_materia) REFERENCES asignatura(id_asignatura),
+	id_convocatoria integer not null,
+	FOREIGN KEY(id_convocatoria) REFERENCES convocatorias(id_convocatoria),
+	primera_evaluacion float,
+	segunda_evaluacion float,
+	final float,
+	extraordinario float,
+	promedio float
+);
+
+CREATE OR REPLACE TABLE alumnos_grupos(
+	-- jovannyrch@gmail.com
+	id integer AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	id_alumno integer not null,
+	FOREIGN KEY(id_alumno) REFERENCES usuarios(id_usuario),
+	id_grupo integer not null,
+	FOREIGN KEY(id_grupo) REFERENCES grupos(id_grupo),
+	id_convocatoria integer not null,
+	FOREIGN KEY(id_convocatoria) REFERENCES convocatorias(id_convocatoria)
+);	
+
+
+
+
+CREATE OR REPLACE TABLE cursos_materias(
+	-- jovannyrch@gmail.com
+	id integer AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	id_curso integer not null,
+	FOREIGN KEY(id_curso) REFERENCES curso(id_curso),
+	id_asignatura integer not null,
+	FOREIGN KEY(id_asignatura) REFERENCES asignatura(id_asignatura)
+);
+
+
+
+

@@ -27,5 +27,10 @@ class Grupos extends CI_Controller {
 		$this->load->view('grupos/reporteMaterias',$datos);
 		$this->load->view('footer');
 	}
+	public function alumnos(){
+		$this->load->view('header');
+		$this->load->view('grupos/alumnos');
+		$this->load->view('footer');
+	}
 
 }

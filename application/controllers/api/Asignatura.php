@@ -76,8 +76,7 @@ class Asignatura extends REST_Controller{
 
     public function asignaturaXcurso_get($id_curso){
         $resultado = $this->asignatura_model->getXcurso($id_curso);
-        if($resultado)$this->response($resultado, 200);
-        else $this->response("Error en el get de asignatura", 400);
+        $this->response($resultado, 200);
     }
 
     //Obtener los datos de un profesor
